@@ -3,7 +3,6 @@
 namespace Ferdiunal\LaravelCacheCouchdb;
 
 use Doctrine\CouchDB\CouchDBClient;
-use Illuminate\Cache\TaggableStore;
 use Illuminate\Contracts\Cache\Store;
 
 /**
@@ -11,10 +10,32 @@ use Illuminate\Contracts\Cache\Store;
  */
 class LaravelCacheCouchdb implements Store
 {
+    /**
+     * The CouchDB client instance.
+     *
+     * @var CouchDBClient
+     */
+    protected CouchDBClient $client;
+    
+    /**
+     * The cache key prefix.
+     *
+     * @var string
+     */
+    protected string $prefix;
+
+    /**
+     * Create a new LaravelCacheCouchdb instance.
+     *
+     * @param CouchDBClient $client
+     * @param string $prefix
+     */
     public function __construct(
-        protected readonly CouchDBClient $client,
-        protected readonly string $prefix = ''
+        CouchDBClient $client,
+        string $prefix = ''
     ) {
+        $this->client = $client;
+        $this->prefix = $prefix;
     }
 
     /**
