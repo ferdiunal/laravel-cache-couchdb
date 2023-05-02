@@ -1,6 +1,6 @@
 {
     "name": "ferdiunal/laravel-cache-couchdb",
-    "description": "This is my package laravel-cache-couchdb",
+    "description": "This package provides a cache store implementation for Laravel that uses a CouchDB database to store cached items. It supports both the default and tagged cache functionality of Laravel.",
     "keywords": [
         "ferdiunal",
         "laravel",
