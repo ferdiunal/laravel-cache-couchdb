@@ -12,23 +12,16 @@ class LaravelCacheCouchdb implements Store
 {
     /**
      * The CouchDB client instance.
-     *
-     * @var CouchDBClient
      */
     protected CouchDBClient $client;
-    
+
     /**
      * The cache key prefix.
-     *
-     * @var string
      */
     protected string $prefix;
 
     /**
      * Create a new LaravelCacheCouchdb instance.
-     *
-     * @param CouchDBClient $client
-     * @param string $prefix
      */
     public function __construct(
         CouchDBClient $client,
