@@ -26,12 +26,6 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
-        // config()->set('database.default', 'testing');
-        config()->set('cache.default', 'couch');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-cache-couchdb_table.php.stub';
-        $migration->up();
-        */
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Contracts\Cache\Store;
 /**
  * LaravelCacheCouchdb class that extends TaggableStore and implements Store contract.
  */
-class LaravelCacheCouchdb extends TaggableStore implements Store
+class LaravelCacheCouchdb implements Store
 {
     public function __construct(
         protected readonly CouchDBClient $client,
@@ -26,7 +26,6 @@ class LaravelCacheCouchdb extends TaggableStore implements Store
     public function get($key): mixed
     {
         $response = $this->client->findDocument($this->prefix.$key);
-        ray(unserialize($response->body['data']));
 
         if ($response->status === 200) {
             if ($response->body['ttl'] === 0 || $response->body['ttl'] > time()) {
